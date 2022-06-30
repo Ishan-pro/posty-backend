@@ -5,15 +5,23 @@
   "author": "Ishan Tiwari",
   "license": "MIT",
   "scripts": {
-    "start": "node server.mjs",
-    "build": "tsc --project ./"
+    "start": "node server.js",
+    "build": "tsc --project ./",
+    "watch-ts": "tsc --watch",
+    "watch-js": "npx nodemon server.js",
+    "dev": "npx concurrently \"npm:watch-ts\" \"npm:watch-js\""
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "@prisma/client": "^3.15.2",
+    "concurrently": "^7.2.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "prisma": "^4.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^18.0.0",
+    "nodemon": "^2.0.18",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
   }
