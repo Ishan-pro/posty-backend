@@ -1,24 +1,32 @@
----
-title: Node HTTP Module
-description: A HTTP module server
-tags:
-  - http
-  - nodejs
-  - javascript
----
+<h1 align="center">Welcome to posty-backend 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/IshanTi29496052" target="_blank">
+    <img alt="Twitter: IshanTi29496052" src="https://img.shields.io/twitter/follow/IshanTi29496052.svg?style=social" />
+  </a>
+</p>
 
-# HTTP Module Example
+> Chat with your friends and family within the warmth of this open source software.
 
-This example starts an [HTTP Module](https://nodejs.org/api/http.html) server.
+## Install
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fexamples%2Ftree%2Fmaster%2Fexamples%2Fhttp-nodejs)
+```sh
+npm install
+```
 
-## 💁‍♀️ How to use
+## Author
 
-- Install dependencies `yarn`
-- Connect to your Railway project `railway link`
-- Start the development server `railway run yarn start`
+👤 **Ishan Tiwari**
 
-## 📝 Notes
+* Twitter: [@IshanTi29496052](https://twitter.com/IshanTi29496052)
+* Github: [@Ishan-pro](https://github.com/Ishan-pro)
 
-The server started simply returns a `Hello World` payload. The server code is located in `server.mjs`.
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
