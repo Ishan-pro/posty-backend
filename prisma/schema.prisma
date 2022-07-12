@@ -3,6 +3,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider = "prisma-client-js"
+}
+
+
 model Post {
     id              Int             @id @default(autoincrement())
     createdAt       DateTime        @default(now())
@@ -17,4 +22,7 @@ model User {
     email           String          @unique
     name            String
     posts           Post[]
+    refreshtoken    String          @unique 
+    accesstoken     String          @unique 
+    password        String
 }
