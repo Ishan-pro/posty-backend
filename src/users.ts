@@ -10,7 +10,11 @@ const prisma = new PrismaClient();
 const app: Router = new (Router as any)();
 
 app.get("", async (req: Request, res: Response) => {
-  const Allusers = await prisma.user.findMany();
+  const Allusers = await prisma.user.findMany({select:{
+    username:true,
+    email:true,
+    name:true
+   }})
   console.log(req.user?.username);
   res.send(Allusers);
 });

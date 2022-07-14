@@ -22,7 +22,11 @@ const prisma = new client_1.PrismaClient();
 const app = new express_1.Router();
 app.get("", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
-    const Allusers = yield prisma.user.findMany();
+    const Allusers = yield prisma.user.findMany({ select: {
+            username: true,
+            email: true,
+            name: true
+        } });
     console.log((_a = req.user) === null || _a === void 0 ? void 0 : _a.username);
     res.send(Allusers);
 }));

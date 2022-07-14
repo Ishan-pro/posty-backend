@@ -14,10 +14,52 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const app = new express_1.Router();
 app.get('', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const Allusers = yield prisma.post.findMany();
-    res.send(Allusers);
+    const Allposts = yield prisma.post.findMany();
+    res.send(Allposts);
+}));
+app.post('/byuser/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { username } = req.body;
+    console.log(req.user.username);
+    if (username) {
+        const userposts = yield prisma.post.findMany({
+            where: {
+                authorname: username
+            }
+        });
+        res.send(userposts);
+    }
+    else {
+        res.status(404).send("Invalid Request");
+    }
 }));
 app.post('', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send('Hello World');
+    const { content } = req.body;
+    if (req.user && content) {
+        const post = yield prisma.post.create({
+            data: {
+                content,
+                authorname: req.user.username
+            }
+        });
+        res.send(post);
+    }
+    else {
+        res.status(404).send('Invalid Request');
+    }
+}));
+app.delete('', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { postid } = req.body;
+    if (postid && req.user) {
+        yield prisma.post.delete({
+            where: {
+                id: postid,
+                authorname: req.user.username
+            }
+        });
+        res.send("Deleted");
+    }
+    else {
+        res.status(404).send("invalid request");
+    }
 }));
 exports.default = app;
